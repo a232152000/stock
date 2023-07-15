@@ -14,6 +14,7 @@ class ChannelTokenSeeder extends Seeder
     public function run(): void
     {
         DB::table('channel_tokens')->insert([
+            'id' => 1,
             'user_id' => 1,
             'token' => 'U55cfec471cde3a870a91c5c372258fd1',
             'channel' => 'line',

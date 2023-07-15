@@ -15,12 +15,14 @@ class ChannelTokenStockSeeder extends Seeder
     {
         DB::table('channel_token_stocks')->insert([
             [
+                'id' => 1,
                 'channel_token_id' => 1,
                 'stock_id' => 1,
                 'created_at' => '2023-03-25 14:15:00',
                 'updated_at' => '2023-03-25 14:15:00'
             ],
             [
+                'id' => 2,
                 'channel_token_id' => 1,
                 'stock_id' => 2,
                 'created_at' => '2023-03-25 14:15:00',

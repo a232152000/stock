@@ -15,12 +15,14 @@ class UserStockSeeder extends Seeder
     {
         DB::table('user_stocks')->insert([
             [
+                'id' => 1,
                 'user_id' => 1,
                 'stock_id' => 1,
                 'created_at' => '2023-05-06 13:25:00',
                 'updated_at' => '2023-05-06 13:25:00'
             ],
             [
+                'id' => 2,
                 'user_id' => 1,
                 'stock_id' => 2,
                 'created_at' => '2023-05-06 13:25:00',

@@ -15,6 +15,7 @@ class StockSeeder extends Seeder
     {
         DB::table('stocks')->insert([
             [
+                'id' => 1,
                 'code' => '0050',
                 'ex' => 'tse',
                 'n' => '元大台灣50',
@@ -29,6 +30,7 @@ class StockSeeder extends Seeder
                 'updated_at' => '2023-03-25 14:15:00'
             ],
             [
+                'id' => 2,
                 'code' => '00881',
                 'ex' => 'tse',
                 'n' => '國泰台灣5G+',
