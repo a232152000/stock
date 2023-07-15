@@ -3,6 +3,7 @@
 namespace App\Http\Requests\UserStock;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class IndexRequest extends FormRequest
 {
@@ -14,19 +15,14 @@ class IndexRequest extends FormRequest
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\Rule|array|string>
-     */
     public function rules(): array
     {
         return [
             'search' => ['string'],
             'page' => ['integer', 'min:1'],
             'perPage' => ['integer', 'min:1'],
-            'sort' => ['string', 'id'],
-            'direction' => ['string', 'desc'],
+            'sort' => ['string'],
+            'direction' => ['string', Rule::in(['asc', 'desc'])],
         ];
     }
 }

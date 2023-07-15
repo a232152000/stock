@@ -16,11 +16,20 @@ class UserStockRepository
             ->when(
                 $search,
                 function ($query) use ($search) {
-                    $query->where('code', 'like', "%{$search}%")
-                        ->orWhere('n', 'like', "%{$search}%");
+                    $query->whereHas('stock', function ($subQuery) use ($search) {
+                        $subQuery->where('code', 'like', "%{$search}%")
+                            ->orWhere('n', 'like', "%{$search}%");
+                    });
                 }
             )
-            ->orderBy($sort['sort'], $sort['direction'])
+            ->when(
+                $sort['sort'] && $sort['direction'],
+                function ($query) use ($sort) {
+                    $query->whereHas('stock', function ($subQuery) use ($sort) {
+                        $subQuery->orderBy($sort['sort'], $sort['direction']);
+                    });
+                }
+            )
             ->paginate($paginate['perPage'], ['*'], 'page', $paginate['page']);
     }
 }
